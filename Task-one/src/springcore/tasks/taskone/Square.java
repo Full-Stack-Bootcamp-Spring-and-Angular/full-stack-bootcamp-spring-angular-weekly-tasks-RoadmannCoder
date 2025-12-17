@@ -14,7 +14,8 @@ public class Square implements Shape{
     @Override
     public double getArea(int diemnsion) {
         double area = diemnsion * diemnsion;
-        System.out.println("Area of " + getShapeName() + " is " + area);
+        String result = String.format("Area of Square is %f", area);
+        System.out.println(result);
         return area;
     }
 

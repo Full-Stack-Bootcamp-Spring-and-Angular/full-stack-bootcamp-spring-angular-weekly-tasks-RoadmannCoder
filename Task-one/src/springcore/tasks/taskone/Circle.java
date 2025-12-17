@@ -17,7 +17,8 @@ public class Circle implements Shape {
     @Override
     public double getArea(int diemnsion) {
         double area = Math.PI * diemnsion * diemnsion;
-        System.out.println("Area of " + getShapeName() + " is " + area);
+        String result = String.format("Area of Circle is %f", area);
+        System.out.println(result);
         return area;
     }
 
