@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd">
+
+
+    <context:property-placeholder location="classpath:application.properties"/>
+    <!-- Define your beans here -->
+
+    <bean id="circle"
+        class="springcore.tasks.tasktwo.firsttask.versionone.Circle" scope="singleton">
+        <constructor-arg ref ="draw2d" />
+        <constructor-arg ref ="draw3d" />
+
+    </bean>
+    <bean id="circle2"
+          class="springcore.tasks.tasktwo.firsttask.versionone.Circle" scope="prototype">
+        <constructor-arg ref ="draw2d" />
+        <constructor-arg ref ="draw3d" />
+
+    </bean>
+
+
+    <bean id="square"
+          class="springcore.tasks.tasktwo.firsttask.versionone.Square" >
+        <property name="draw2D" ref="draw2d" />
+        <property name="draw3D" ref="draw3d" />
+    </bean>
+
+
+
+    <bean id="draw2d"
+          class="springcore.tasks.tasktwo.firsttask.versionone.Draw2D" />
+    <bean id="draw3d"
+          class="springcore.tasks.tasktwo.firsttask.versionone.Draw3D" />
+
+
+    <bean id="cube" class="springcore.tasks.tasktwo.firsttask.verisontwo.Cube">
+        <constructor-arg ref="dim3d" />
+    </bean>
+    <bean id="rectangle" class="springcore.tasks.tasktwo.firsttask.verisontwo.Rectangle">
+        <property name="drawDimension" ref="dim2d" />
+    </bean>
+
+    <bean id="dim2d" class="springcore.tasks.tasktwo.firsttask.verisontwo.Draw2DDimension"/>
+    <bean id="dim3d" class="springcore.tasks.tasktwo.firsttask.verisontwo.Draw3DDimension"/>
+
+
+    <bean id="databseOps" class="springcore.tasks.tasktwo.secondtask.DatabaseOperation">
+        <property name="url" value="${database.url}" />
+        <property name="username" value="${database.username}"/>
+        <property name="password" value="${database.password}"/>
+    </bean>
+    <bean id="car" class="springcore.tasks.tasktwo.secondtask.Car">
+        <constructor-arg ref="databseOps" />
+    </bean>
+    <bean id="plane" class="springcore.tasks.tasktwo.secondtask.Plane">
+        <property name="databaseOperation" ref="databseOps"/>
+    </bean>
+    <bean id="init-destroy" class="springcore.tasks.tasktwo.secondtask.DatabaseOperation" init-method="openConnection" destroy-method="closeConnection"/>
+
+</beans>
+
+
+
+
+
+
