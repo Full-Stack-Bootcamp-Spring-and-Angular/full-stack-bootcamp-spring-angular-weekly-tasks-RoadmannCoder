@@ -12,14 +12,14 @@
     <!-- Define your beans here -->
 
     <bean id="circle"
-          class="springcore.tasks.tasktwo.firstTask.versionone.Circle">
+          class="springcore.tasks.tasktwo.firsttask.versionone.Circle">
             <constructor-arg ref ="draw2d" />
             <constructor-arg ref ="draw3d" />
     </bean>
 
 
     <bean id="square"
-          class="springcore.tasks.tasktwo.firstTask.versionone.Square" >
+          class="springcore.tasks.tasktwo.firsttask.versionone.Square" >
         <property name="draw2D" ref="draw2d" />
         <property name="draw3D" ref="draw3d" />
     </bean>
@@ -27,31 +27,31 @@
 
 
     <bean id="draw2d"
-          class="springcore.tasks.tasktwo.firstTask.versionone.Draw2D" />
+          class="springcore.tasks.tasktwo.firsttask.versionone.Draw2D" />
     <bean id="draw3d"
-          class="springcore.tasks.tasktwo.firstTask.versionone.Draw3D" />
+          class="springcore.tasks.tasktwo.firsttask.versionone.Draw3D" />
 
 
-    <bean id="cube" class="springcore.tasks.tasktwo.firstTask.verisontwo.Cube">
+    <bean id="cube" class="springcore.tasks.tasktwo.firsttask.verisontwo.Cube">
         <constructor-arg ref="dim3d" />
     </bean>
-    <bean id="rectangle" class="springcore.tasks.tasktwo.firstTask.verisontwo.Rectangle">
+    <bean id="rectangle" class="springcore.tasks.tasktwo.firsttask.verisontwo.Rectangle">
         <property name="drawDimension" ref="dim2d" />
     </bean>
 
-    <bean id="dim2d" class="springcore.tasks.tasktwo.firstTask.verisontwo.Draw2DDimension"/>
-    <bean id="dim3d" class="springcore.tasks.tasktwo.firstTask.verisontwo.Draw3DDimension"/>
+    <bean id="dim2d" class="springcore.tasks.tasktwo.firsttask.verisontwo.Draw2DDimension"/>
+    <bean id="dim3d" class="springcore.tasks.tasktwo.firsttask.verisontwo.Draw3DDimension"/>
 
 
-    <bean id="databseOps" class="springcore.tasks.tasktwo.secondTask.DatabaseOperation">
+    <bean id="databseOps" class="springcore.tasks.tasktwo.secondtask.DatabaseOperation">
         <property name="url" value="${database.url}" />
         <property name="username" value="${database.username}"/>
         <property name="password" value="${database.password}"/>
     </bean>
-    <bean id="car" class="springcore.tasks.tasktwo.secondTask.Car">
+    <bean id="car" class="springcore.tasks.tasktwo.secondtask.Car">
         <constructor-arg ref="databseOps" />
     </bean>
-    <bean id="plane" class="springcore.tasks.tasktwo.secondTask.Plane">
+    <bean id="plane" class="springcore.tasks.tasktwo.secondtask.Plane">
        <property name="databaseOperation" ref="databseOps"/>
     </bean>
 

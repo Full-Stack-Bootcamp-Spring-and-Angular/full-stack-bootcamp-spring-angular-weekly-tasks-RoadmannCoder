@@ -1,9 +1,7 @@
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import springcore.tasks.tasktwo.firstTask.versionone.Draw2D;
-import springcore.tasks.tasktwo.firstTask.versionone.Draw3D;
-import springcore.tasks.tasktwo.firstTask.versionone.Shape;
-import springcore.tasks.tasktwo.secondTask.Vehicle;
+import springcore.tasks.tasktwo.firsttask.versionone.Shape;
+import springcore.tasks.tasktwo.secondtask.Vehicle;
 
 public class Main {
     public static void main(String[] args) {
