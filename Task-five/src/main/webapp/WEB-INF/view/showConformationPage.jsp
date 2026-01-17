@@ -61,8 +61,6 @@
         <label >City</label>
         <input type="text"  name="city" value=${city} >
     </div>
-
-    <input type="submit">
 </form>
 
 <h1>Data SuccessFully Registered</h1>
