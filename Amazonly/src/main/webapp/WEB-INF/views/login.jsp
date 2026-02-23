@@ -1,64 +1,50 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Dell
-  Date: 2/22/2026
-  Time: 9:26 PM
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!doctype html>
 <html lang="en">
 <head>
-    <title>Amazonly</title>
+    <title>Amazonly - Login</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <link rel="stylesheet" href="/resources/css/style.css">
-
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/style.css">
 </head>
-<body>
-<section class="ftco-section">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-6 text-center mb-5">
+<body class="bg-light">
 
+<div class="container d-flex justify-content-center align-items-center min-vh-100">
+    <div class="col-md-6 col-lg-4">
+
+        <div class="login-wrap p-4 p-md-5 shadow-sm bg-white rounded">
+
+            <div class="d-flex align-items-center justify-content-center mb-4">
+                <img src="${pageContext.request.contextPath}/resources/img/logo.png" style="width: 180px; height: auto;">
             </div>
-        </div>
-        <div class="row justify-content-center">
-            <div class="col-md-7 col-lg-5">
-                <div class="login-wrap p-4 p-md-5">
-                    <div class="d-flex align-items-center justify-content-center">
-                        <img src="/resources/img/logo.png" style="width: 300px; height: 300px;">
-                    </div>
-                    <h3 class="text-center mb-4"></h3>
-                    <form action="/login" method="post" class="login-form">
-                        <div class="form-group">
-                            <input name="username" type="text" class="form-control rounded-left" placeholder="Username" required>
-                        </div>
-                        <div class="form-group d-flex">
-                            <input name="password" type="password" class="form-control rounded-left" placeholder="Password" required>
-                        </div>
-                        <div class="form-group">
-                            <button type="submit" class="form-control btn btn-primary rounded submit px-3">Login</button>
-                        </div>
 
-                    </form>
+            <c:if test="${not empty errorMessage}">
+                <div class="alert alert-danger text-center py-2 mb-3">${errorMessage}</div>
+            </c:if>
+
+            <form action="${pageContext.request.contextPath}/login" method="post" class="login-form">
+                <div class="form-group mb-3">
+                    <input name="username" type="text" class="form-control" placeholder="Username" required>
                 </div>
-            </div>
+                <div class="form-group mb-4">
+                    <input name="password" type="password" class="form-control" placeholder="Password" required>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary w-100 py-2 rounded" style="background-color: #1089ff; border: none;">Login</button>
+                </div>
+            </form>
+
         </div>
     </div>
-</section>
+</div>
 
-<script src="/resources/js/jquery.min.js"></script>
-<script src="/resources/js/popper.js"></script>
-<script src="/resources/js/bootstrap.min.js"></script>
-<script src="/resources/js/main.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
 </html>
-
-
