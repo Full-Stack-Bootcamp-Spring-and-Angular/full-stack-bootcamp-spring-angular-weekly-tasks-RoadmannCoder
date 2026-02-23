@@ -9,7 +9,7 @@ public class ProductMapper {
         Product product = new Product();
         return product.builder()
                 .name(productDomain.getProductName())
-                .manufacturer(product.getManufacturer())
+                .manufacturer(productDomain.getManufacturer())
                 .expirationDate(productDomain.getExpiryDate())
                 .price(productDomain.getPrice())
                 .stock(productDomain.getStock())

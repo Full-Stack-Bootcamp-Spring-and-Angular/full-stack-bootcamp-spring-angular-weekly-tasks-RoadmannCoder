@@ -30,7 +30,7 @@
             <div class="card shadow-sm border-0" style="max-width: 800px;">
                 <div class="card-body p-4">
 
-                    <form action="${pageContext.request.contextPath}/products/save" method="POST" enctype="multipart/form-data">
+                    <form action="/products/save" method="POST">
 
                         <div class="row">
                             <div class="col-md-6 mb-3">
@@ -58,11 +58,7 @@
                             </div>
                         </div>
 
-                        <div class="mb-4">
-                            <label class="form-label text-muted fw-bold">Product Image</label>
-                            <input class="form-control bg-light" type="file" name="productImage" accept="image/png, image/jpeg">
-                            <div class="form-text">Please upload a valid PNG or JPEG image file.</div>
-                        </div>
+
 
                         <div class="d-flex justify-content-end mt-4 pt-3 border-top">
                             <button type="reset" class="btn btn-outline-secondary me-2 px-4">Clear</button>
