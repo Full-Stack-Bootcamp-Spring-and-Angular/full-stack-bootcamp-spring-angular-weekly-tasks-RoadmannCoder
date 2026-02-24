@@ -1,4 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!doctype html>
 <html lang="en">
 <head>
@@ -30,31 +32,41 @@
             <div class="card shadow-sm border-0" style="max-width: 800px;">
                 <div class="card-body p-4">
 
-                    <form action="${pageContext.request.contextPath}/products/update?id=${id}" method="POST" modelAttribute="productDomain">
+                    <form:form action="${pageContext.request.contextPath}/products/update?id=${id}" method="POST" modelAttribute="productDomain">
 
                         <div class="row">
                             <div class="col-md-6 mb-3">
                                 <label class="form-label text-muted fw-bold">Product Name</label>
-                                <input type="text" name="productName" class="form-control bg-light" value=${product.productName} required>
+                                <form:input type="text" path="productName" class="form-control bg-light" value="${product.productName}"/>
+                                <form:errors path="productName" cssClass="text-danger small mt-1 d-block" />
+
                             </div>
                             <div class="col-md-6 mb-3">
                                 <label class="form-label text-muted fw-bold">Manufacturer</label>
-                                <input type="text" name="manufacturer" class="form-control bg-light" value=${product.manufacturer} required>
+                                <form:input type="text" path="manufacturer" class="form-control bg-light" value="${product.manufacturer}"/>
+                                <form:errors path="manufacturer" cssClass="text-danger small mt-1 d-block" />
+
                             </div>
                         </div>
 
                         <div class="row">
                             <div class="col-md-4 mb-3">
                                 <label class="form-label text-muted fw-bold">Price ($)</label>
-                                <input type="number" step="0.01" name="price" class="form-control bg-light" value=${product.price} required>
+                                <form:input type="number" step="0.01" path="price" class="form-control bg-light" value="${product.price}"/>
+                                <form:errors path="price" cssClass="text-danger small mt-1 d-block" />
+
                             </div>
                             <div class="col-md-4 mb-3">
                                 <label class="form-label text-muted fw-bold">Initial Stock</label>
-                                <input type="number" name="stock" class="form-control bg-light" value=${product.stock} required>
+                                <form:input type="number" path="stock" class="form-control bg-light" value="${product.stock}"/>
+                                <form:errors path="stock" cssClass="text-danger small mt-1 d-block" />
+
                             </div>
                             <div class="col-md-4 mb-3">
                                 <label class="form-label text-muted fw-bold">Expiry Date</label>
-                                <input type="date" name="expiryDate"  class="form-control bg-light" value=${product.expiryDate}>
+                                <form:input type="date" path="expiryDate"  class="form-control bg-light" value="${product.expiryDate}"/>
+                                <form:errors path="expiryDate" cssClass="text-danger small mt-1 d-block" />
+
                             </div>
                         </div>
 
@@ -64,7 +76,7 @@
                             <button type="submit" class="btn btn-success px-5" style="background-color: #55A663; border: none;">Update Product</button>
                         </div>
 
-                    </form>
+                    </form:form>
                 </div>
             </div>
 

@@ -1,15 +1,16 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!doctype html>
 <html lang="en">
 <head>
     <title>Amazonly - Add Product</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/style.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/dashboard.css?v=2">
 </head>
 <body>
 <div class="main-container d-flex">
@@ -30,42 +31,45 @@
             <div class="card shadow-sm border-0" style="max-width: 800px;">
                 <div class="card-body p-4">
 
-                    <form action="${pageContext.request.contextPath}/products/save" method="POST" modelAttribute="productDomain">
+                    <form:form action="${pageContext.request.contextPath}/products/save" method="POST" modelAttribute="productDomain">
 
                         <div class="row">
                             <div class="col-md-6 mb-3">
                                 <label class="form-label text-muted fw-bold">Product Name</label>
-                                <input type="text" name="productName" class="form-control bg-light" placeholder="e.g. Wireless Mouse" required>
+                                <form:input path="productName" class="form-control bg-light" placeholder="e.g. Wireless Mouse" />
+                                <form:errors path="productName" cssClass="text-danger small mt-1 d-block" />
                             </div>
                             <div class="col-md-6 mb-3">
                                 <label class="form-label text-muted fw-bold">Manufacturer</label>
-                                <input type="text" name="manufacturer" class="form-control bg-light" placeholder="e.g. Logitech" required>
+                                <form:input path="manufacturer" class="form-control bg-light" placeholder="e.g. Logitech" />
+                                <form:errors path="manufacturer" cssClass="text-danger small mt-1 d-block" />
                             </div>
                         </div>
 
                         <div class="row">
                             <div class="col-md-4 mb-3">
                                 <label class="form-label text-muted fw-bold">Price ($)</label>
-                                <input type="number" step="0.01" name="price" class="form-control bg-light" placeholder="0.00" required>
+                                <form:input type="number" step="0.01" path="price" class="form-control bg-light" placeholder="0.00" />
+                                <form:errors path="price" cssClass="text-danger small mt-1 d-block" />
                             </div>
                             <div class="col-md-4 mb-3">
                                 <label class="form-label text-muted fw-bold">Initial Stock</label>
-                                <input type="number" name="stock" class="form-control bg-light" placeholder="0" required>
+                                <form:input type="number" path="stock" class="form-control bg-light" placeholder="0" />
+                                <form:errors path="stock" cssClass="text-danger small mt-1 d-block" />
                             </div>
                             <div class="col-md-4 mb-3">
                                 <label class="form-label text-muted fw-bold">Expiry Date</label>
-                                <input type="date" name="expiryDate" class="form-control bg-light">
+                                <form:input type="date" path="expiryDate" class="form-control bg-light" />
+                                <form:errors path="expiryDate" cssClass="text-danger small mt-1 d-block" />
                             </div>
                         </div>
-
-
 
                         <div class="d-flex justify-content-end mt-4 pt-3 border-top">
                             <button type="reset" class="btn btn-outline-secondary me-2 px-4">Clear</button>
                             <button type="submit" class="btn btn-success px-5" style="background-color: #55A663; border: none;">Save Product</button>
                         </div>
 
-                    </form>
+                    </form:form>
                 </div>
             </div>
 
