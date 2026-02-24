@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!doctype html>
 <html lang="en">
 <head>
@@ -42,7 +43,7 @@
                             </div>
 
                             <div class="card-body">
-                                <h5 class="card-title text-dark fw-bold mb-1">${product.productName}</h5>
+                                <h5 class="card-title text-dark fw-bold mb-1">${product.name}</h5>
                                 <h6 class="card-subtitle text-muted mb-3"><small>${product.manufacturer}</small></h6>
 
                                 <div class="d-flex justify-content-between align-items-center">

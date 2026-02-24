@@ -1,5 +1,6 @@
 package com.springmvc.controller;
 
+import com.springmvc.mapper.ProductMapper;
 import com.springmvc.models.ProductDomain;
 import com.springmvc.services.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class ProductController {
@@ -27,9 +29,31 @@ public class ProductController {
     }
 
     @RequestMapping(value = "/products/save",method = RequestMethod.POST)
-    public String saveProduct(@ModelAttribute ProductDomain productDomain){
+    public String saveProduct(@ModelAttribute("productDomain") ProductDomain productDomain){
         productService.addProduct(productDomain);
         return "redirect:/products/view";
     }
+
+    @RequestMapping(value = "/products/delete", method = RequestMethod.GET)
+    public String deleteProduct(@RequestParam("id") String id){
+        productService.deleteProduct(Integer.parseInt(id));
+        return "redirect:/products/view";
+    }
+
+    @RequestMapping(value = "/products/edit", method = RequestMethod.GET)
+    public String editProduct(@RequestParam("id") String id, Model model){
+        ProductDomain productDomain = ProductMapper.toDomain(productService.getProduct(Integer.parseInt(id)));
+        model.addAttribute("product",productDomain);
+        model.addAttribute("id",id);
+        return "updateProduct";
+    }
+
+    @RequestMapping(value = "/products/update",method = RequestMethod.POST)
+    public String updateProduct(@RequestParam("id") String id, @ModelAttribute("productDomain") ProductDomain productDomain){
+        productService.updateProduct(ProductMapper.toEntity(productDomain,Integer.parseInt(id)));
+        return "redirect:/products/view";
+    }
+
+
 
 }
