@@ -29,7 +29,7 @@ public class ProductController {
     @RequestMapping(value = "/products/save",method = RequestMethod.POST)
     public String saveProduct(@ModelAttribute ProductDomain productDomain){
         productService.addProduct(productDomain);
-        return "redirect:/product/view";
+        return "redirect:/products/view";
     }
 
 }

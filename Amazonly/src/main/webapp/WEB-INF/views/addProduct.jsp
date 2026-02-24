@@ -30,7 +30,7 @@
             <div class="card shadow-sm border-0" style="max-width: 800px;">
                 <div class="card-body p-4">
 
-                    <form action="/products/save" method="POST">
+                    <form action="${pageContext.request.contextPath}/products/save" method="POST">
 
                         <div class="row">
                             <div class="col-md-6 mb-3">
