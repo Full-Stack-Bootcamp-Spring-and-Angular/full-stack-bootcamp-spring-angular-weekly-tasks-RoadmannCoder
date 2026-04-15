@@ -51,8 +51,18 @@ public class ProductServiceImpl implements ProductService{
     }
 
     @Override
-    public ProductDomain update(ProductDomain productDomain) {
-        return null;
+    public ProductDomain update(ProductDomain productDomain, int id) {
+        Optional<Product> product = productRepository.findById(id);
+        if(product.isPresent()){
+            product.get().setName(productDomain.getProductName());
+            product.get().setPrice(productDomain.getPrice());
+            product.get().setStock(productDomain.getStock());
+            product.get().setManufacturer(productDomain.getManufacturer());
+            product.get().setExpirationDate(productDomain.getExpiryDate());
+            productRepository.save(product.get());
+            return ProductMapper.toDomain(product.get());
+        }
+        return new ProductDomain();
 
     }
 }

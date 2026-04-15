@@ -17,5 +17,5 @@ public interface ProductService {
 
     ProductDomain save (ProductDomain productDomain);
 
-    ProductDomain update (ProductDomain productDomain);
+    ProductDomain update (ProductDomain productDomain, int id);
 }
