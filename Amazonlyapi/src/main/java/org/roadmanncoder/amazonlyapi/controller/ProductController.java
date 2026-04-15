@@ -26,9 +26,9 @@ public class ProductController {
         return new ResponseEntity<>(productDomain1, HttpStatus.CREATED);
     }
 
-    @DeleteMapping("/product/{productId}")
-    public ResponseEntity<String> deleteProduct(@PathVariable Integer productId){
-        String response = productService.deleteById(productId);
+    @DeleteMapping("/product/{id}")
+    public ResponseEntity<String> deleteProduct(@PathVariable int id){
+        String response = productService.deleteById(id);
         return new ResponseEntity<>(response,HttpStatus.OK);
    }
    @GetMapping("/product")
@@ -42,6 +42,12 @@ public class ProductController {
     public ResponseEntity<ProductDomain> getProduct(@PathVariable int id){
         ProductDomain productDomain = productService.findById(id);
         return new ResponseEntity<>(productDomain, HttpStatus.OK);
+   }
+
+   @PutMapping("/product/{id}")
+    public ResponseEntity<ProductDomain> updateProduct(@RequestBody ProductDomain productDomain, @PathVariable int id){
+        ProductDomain productDomainUpdate = productService.update(productDomain,id);
+        return new ResponseEntity<>(productDomainUpdate, HttpStatus.OK);
    }
 
 
